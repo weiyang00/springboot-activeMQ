@@ -3,6 +3,8 @@ package com.example.springbootdemo;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
 
 /**
@@ -11,7 +13,7 @@ import org.springframework.cache.annotation.EnableCaching;
  * Created by bysocket on 16/4/26.
  */
 // Spring Boot 应用的标识
-@SpringBootApplication
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
 // mapper 接口类扫描包配置
 @MapperScan("com.example.springbootdemo.dao")
 @EnableCaching // 启动缓存
